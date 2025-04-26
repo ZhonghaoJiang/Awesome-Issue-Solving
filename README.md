@@ -1,36 +1,64 @@
-# Repo-Level Autonomous Program Repair
+# Agentic Systems for Automated GitHub Issue Solving: A Survey
 
 ## Introduction
 
-Up to 2025-01-04, autonomous program repair technologies evaluated on SWE-Bench can be mainly divided into 3 catagories:
-Agent-Based Method, Agentless Based Method, and Fine-Tuned Based Method.
-The workflow of these methods usually includes 3 phases: localization, repair gen eration, and repair validation.
+Up to 2025-04-06, automated GitHub issue solving technologies can be mainly surveyed from 2 perspectives:
+Design Paradigms and Foundation Model.
+
+From the perspective of Design Paradigms, we can classify them into 3 categories:
 > @Agent-Based Method  
-> @Agentless Based Method  
-> @Fine-Tuned Based Method
+> @Pipeline-Based Method  
+> @RAG-Based Method
 
-## Empirical Study
+The workflow of these methods usually includes 3 phases: localization, repair, and patch validation.
 
-| Cite                                                                                                                              |                           Literature                            | Journal/Conference | Time |               URL                |
-|-----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------:|:------------------:|:----:|:--------------------------------:|
-| Meng, Xiangxin, et al. "An Empirical Study on LLM-based Agents for Automated Bug Fixing." arXiv preprint arXiv:2411.10213 (2024). | An Empirical Study on LLM-based Agents for Automated Bug Fixing |       Arxiv        | 2024 | https://arxiv.org/abs/2405.15793 |
+From the perspective of Foundation Model, we can classify them into 2 categories:
+> @SFT-Based Method  
+> @RL-Based Method
 
-## Papers
+## Table of Contents
 
-| Cite                                                                                                                                                                        |         Literature          | Journal/Conference | Time |    Label    | Resolved% |    LLM     |               URL                |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------:|:------------------:|:----:|:-----------:|:---------:|:----------:|:--------------------------------:|
-| Yang, John, et al. "Swe-agent: Agent-computer interfaces enable automated software engineering." arXiv preprint arXiv:2405.15793 (2024).                                    |          SWE-Agent          |    NeurIPS 2023    | 2024 |   @Agent    |    23     | 3.5-S-0620 | https://arxiv.org/abs/2405.15793 |
-| Zhang, Yuntong, et al. "Autocoderover: Autonomous program improvement." Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis. 2024. |        AutoCodeRover        |     ISSTA 2024     | 2024 |   @Agent    |    19     |  4o-0513   | https://arxiv.org/abs/2404.05427 |
-| Chen, Dong, et al. "CodeR: Issue Resolving with Multi-Agent and Task Graphs." arXiv preprint arXiv:2406.01304 (2024).                                                       |            CodeR            |       Arxiv        | 2024 |   @Agent    |   28.33   |   4-1106   | https://arxiv.org/abs/2406.01304 |
-| Ma, Yingwei, et al. "How to Understand Whole Software Repository?." arXiv preprint arXiv:2406.01422 (2024).                                                                 |      RepoUnderstander       |       Arxiv        | 2024 |   @Agent    |   21.33   |   4-1106   | https://arxiv.org/abs/2406.01422 |
-| Arora, Daman, et al. "MASAI: Modular Architecture for Software-engineering AI Agents." arXiv preprint arXiv:2406.11638 (2024).                                              |            MASAI            |       Arxiv        | 2024 |   @Agent    |   27.33   |  4o-0513   | https://arxiv.org/abs/2406.11638 |
-| Xia, Chunqiu Steven, et al. "Agentless: Demystifying llm-based software engineering agents." arXiv preprint arXiv:2407.01489 (2024).                                        |          Agentless          |      FSE 2025      | 2024 | @Agentless  |   40.67   |   3.5-S    | https://arxiv.org/abs/2407.01489 |
-| Ruan, Haifeng, Yuntong Zhang, and Abhik Roychoudhury. "Specrover: Code intent extraction via llms." arXiv preprint arXiv:2408.02232 (2024).                                 | SpecRover(AutoCodeRover-v2) |     ICSE 2025      | 2024 |   @Agent    |   30.67   |  4o-0513   | https://arxiv.org/abs/2408.02232 |
-| Gautam, Anmol, et al. "SuperCoder2. 0: Technical Report on Exploring the feasibility of LLMs as Autonomous Programmer." arXiv preprint arXiv:2409.11190 (2024).             |         SuperCoder          |       Arxiv        | 2024 |   @Agent    |    34     |  4o-0513   | https://arxiv.org/abs/2409.11190 |
-| Phan, Huy Nhat, et al. "Hyperagent: Generalist software engineering agents to solve coding tasks at scale." arXiv preprint arXiv:2409.16299 (2024).                         |         HyperAgent          |       Arxiv        | 2024 |   @Agent    |   25.33   |  4o-0513   | https://arxiv.org/abs/2409.16299 |
-| Ouyang, Siru, et al. "RepoGraph: Enhancing AI Software Engineering with Repository-level Code Graph." arXiv preprint arXiv:2410.14684 (2024).                               |          RepoGraph          |     ICLR 2025      | 2024 | @Agentless  |   29.67   |  4o-0513   | https://arxiv.org/abs/2410.14684 |
-| Antoniades, Antonis, et al. "SWE-Search: Enhancing Software Agents with Monte Carlo Tree Search and Iterative Refinement." arXiv preprint arXiv:2410.20285 (2024).          |         SWE-Search          |     ICLR 2025      | 2024 |   @Agent    |    31     |  4o-0513   | https://arxiv.org/abs/2410.20285 |
-| Ma, Yingwei, et al. "Lingma SWE-GPT: An Open Development-Process-Centric Language Model for Automated Software Improvement." arXiv preprint arXiv:2411.00622 (2024).        |       Lingma SWE-GPT        |       Arxiv        | 2024 | @Fine-Tuned |    22     |  4o-0513   | https://arxiv.org/abs/2411.00622 |
-| Lei, Bin, et al. "Infant Agent: A Tool-Integrated, Logic-Driven Agent with Cost-Effective API Usage." arXiv preprint arXiv:2411.01114 (2024).                               |        Infant Agent         |       Arxiv        | 2024 |   @Agent    |    30     |  4o-0513   | https://arxiv.org/abs/2411.01114 |
-| Liu, Yizhou, et al. "MarsCode Agent: AI-native Automated Bug Fixing." arXiv preprint arXiv:2409.00899 (2024).                                                               |       MarsCode Agent        |       Arxiv        | 2024 |   @Agent    |   39.33   |  4o-0513   | https://arxiv.org/abs/2409.00899 |
-| Wang, Xingyao, et al. "OpenHands: An Open Platform for AI Software Developers as Generalist Agents." arXiv preprint arXiv:2407.16741 (2024).                                |          OpenHands          |     ICLR 2025      | 2024 |   @Agent    |   41.67   |   3.5-S    | https://arxiv.org/abs/2407.16741 |
+- [Benchmarks](#benchmarks)
+- [Design Paradigms](#design-paradigms)
+- [Foundation Model](#foundation-model)
+
+[//]: # ([Paper]&#40;&#41;[Code]&#40;&#41;)
+
+## Benchmarks
+
+| Literature                                                                                             |        Name         |            Scope             | Journal/Conference |  Time   |                                                     Link                                                     |
+|:-------------------------------------------------------------------------------------------------------|:-------------------:|:----------------------------:|:------------------:|:-------:|:------------------------------------------------------------------------------------------------------------:|
+| SWE-bench: Can Language Models Resolve Real-World GitHub Issues?                                       |      SWE-bench      |          End-To-End          |      ICLR'24       | 2023-10 |         [Paper](https://arxiv.org/abs/2310.06770)<br/>[Code](https://github.com/swe-bench/SWE-bench)         |
+| SWT-Bench: Testing and Validating Real-World Bug-Fixes with Code Agents                                |      SWT-Bench      | Reproduction Test Generation |      ICLR'25       | 2024-06 |       [Paper](https://arxiv.org/abs/2406.12952)<br/>[Code](https://github.com/logic-star-ai/SWT-Bench)       |
+| SWE-bench-java: A GitHub Issue Resolving Benchmark for Java                                            |   Muti-SWE-bench    |          End-To-End          |       ARXIV        | 2024-08 | [Paper](https://arxiv.org/abs/2408.14354)<br/>[Code](https://github.com/multi-swe-bench/multi-swe-bench-env) |
+| SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?                             | SWE-bench Mutimodal |          End-To-End          |      ICLR'25       | 2024-10 |         [Paper](https://arxiv.org/abs/2410.03859)<br/>[Code](https://github.com/swe-bench/SWE-bench)         |
+| SWE-Bench+: Enhanced Coding Benchmark for LLMs                                                         |     SWE-Bench+      |          End-To-End          |       ARXIV        | 2024-10 |                                  [Paper](https://arxiv.org/abs/2410.06992)                                   |
+| TestGenEval: A Real World Unit Test Generation and Test Completion Benchmark                           |     TestGenEval     | Reproduction Test Generation |      ICLR'25       | 2024-10 |      [Paper](https://arxiv.org/abs/2410.00752)<br/>[Code](https://figshare.com/s/51171ae97cd21d233d4f)       |
+| A Real-World Benchmark for Evaluating Fine-Grained Issue Solving Capabilities of Large Language Models |      FAUN-Eval      |          End-To-End          |       ARXIV        | 2024-11 |                                  [Paper](https://arxiv.org/pdf/2411.18019)                                   |
+| Multi-SWE-bench: A Multilingual Benchmark for Issue Resolving                                          |   Muti-SWE-bench    |          End-To-End          |       ARXIV        | 2025-04 |   [Paper](https://arxiv.org/abs/2504.02605)<br/>[Code](https://github.com/multi-swe-bench/multi-swe-bench)   |
+| LocAgent: Graph-Guided LLM Agents for Code Localization                                                |      LocBench       |         Localization         |       ARXIV        | 2025-03 |            [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://arxiv.org/abs/2503.09089)            |
+
+## Design Paradigms
+
+| Literature                                                                                            |      Name      | Journal/Conference | Time | Label |                    URL                    |
+|-------------------------------------------------------------------------------------------------------|:--------------:|:------------------:|:----:|:-----:|:-----------------------------------------:|
+| Lingma SWE-GPT: An Open Development-Process-Centric Language Model for Automated Software Improvement | Lingma SWE-GPT | FSE 2025 Industry  | 2024 | @SFT  | [Paper](https://arxiv.org/abs/2411.00622) |
+
+## Foundation Model
+
+| Literature                                                                                    |             Name             | Journal/Conference | Time |   Label   |                    URL                    |
+|-----------------------------------------------------------------------------------------------|:----------------------------:|:------------------:|:----:|:---------:|:-----------------------------------------:|
+| Swe-agent: Agent-computer interfaces enable automated software engineering                    |          SWE-Agent           |    NeurIPS 2023    | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2405.15793) |
+| Autocoderover: Autonomous program improvement                                                 |        AutoCodeRover         |     ISSTA 2024     | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2404.05427) |
+| CodeR: Issue Resolving with Multi-Agent and Task Graphs                                       |            CodeR             |       Arxiv        | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2406.01304) |
+| How to Understand Whole Software Repository?                                                  |       RepoUnderstander       |       Arxiv        | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2406.01422) |
+| MASAI: Modular Architecture for Software-engineering AI Agents                                |            MASAI             |       Arxiv        | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2406.11638) |
+| Agentless: Demystifying llm-based software engineering agents                                 |          Agentless           |      FSE 2025      | 2024 | @Pipeline | [Paper](https://arxiv.org/abs/2407.01489) |
+| Specrover: Code intent extraction via llms                                                    | SpecRover (AutoCodeRover-v2) |     ICSE 2025      | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2408.02232) |
+| SuperCoder2.0: Technical Report on Exploring the feasibility of LLMs as Autonomous Programmer |          SuperCoder          |       Arxiv        | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2409.11190) |
+| Hyperagent: Generalist software engineering agents to solve coding tasks at scale             |          HyperAgent          |       Arxiv        | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2409.16299) |
+| RepoGraph: Enhancing AI Software Engineering with Repository-level Code Graph                 |          RepoGraph           |     ICLR 2025      | 2024 | @Pipeline | [Paper](https://arxiv.org/abs/2410.14684) |
+| SWE-Search: Enhancing Software Agents with Monte Carlo Tree Search and Iterative Refinement   |          SWE-Search          |     ICLR 2025      | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2410.20285) |
+| Infant Agent: A Tool-Integrated, Logic-Driven Agent with Cost-Effective API Usage             |         Infant Agent         |       Arxiv        | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2411.01114) |
+| MarsCode Agent: AI-native Automated Bug Fixing                                                |        MarsCode Agent        |       Arxiv        | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2409.00899) |
+| OpenHands: An Open Platform for AI Software Developers as Generalist Agents                   |          OpenHands           |     ICLR 2025      | 2024 |  @Agent   | [Paper](https://arxiv.org/abs/2407.16741) |
