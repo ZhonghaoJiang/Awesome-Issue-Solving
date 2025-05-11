@@ -6,6 +6,7 @@ Up to 2025-04-06, automated GitHub issue solving technologies can be mainly surv
 Design Paradigms and Foundation Model.
 
 From the perspective of Design Paradigms, we can classify them into 3 categories:
+
 > @Agent-Based Method  
 > @Pipeline-Based Method  
 > @RAG-Based Method
@@ -13,62 +14,121 @@ From the perspective of Design Paradigms, we can classify them into 3 categories
 The workflow of these methods usually includes 3 phases: localization, repair, and patch validation.
 
 From the perspective of Foundation Model, we can classify them into 2 categories:
+
 > @SFT-Based Method  
 > @RL-Based Method
 
 ## Table of Contents
 
+- [Benchmarks](#benchmarks)
 - [Design Paradigms](#design-paradigms)
+    - [Issue Localization](#issue-localization)
+    - [Repair](#repair)
+    - [Patch Validation](#patch-validation)
 - [Foundation Model](#foundation-model)
-
-[//]: # "[Paper]&#40;&#41;[Code]&#40;&#41;"
+    - [Data](#data)
+    - [Training](#training)
+- [Empirical Studies](#empirical-studies)
 
 ## Benchmarks
 
-| Literature                                                                                             |        Name         |            Scope             | Journal/Conference |  Time   |                                                     Link                                                     |
-|:-------------------------------------------------------------------------------------------------------|:-------------------:|:----------------------------:|:------------------:|:-------:|:------------------------------------------------------------------------------------------------------------:|
-| SWE-bench: Can Language Models Resolve Real-World GitHub Issues?                                       |      SWE-bench      |          End-To-End          |      ICLR'24       | 2023-10 |         [Paper](https://arxiv.org/abs/2310.06770)<br/>[Code](https://github.com/swe-bench/SWE-bench)         |
-| SWT-Bench: Testing and Validating Real-World Bug-Fixes with Code Agents                                |      SWT-Bench      | Reproduction Test Generation |      ICLR'25       | 2024-06 |       [Paper](https://arxiv.org/abs/2406.12952)<br/>[Code](https://github.com/logic-star-ai/SWT-Bench)       |
-| SWE-bench-java: A GitHub Issue Resolving Benchmark for Java                                            |   Muti-SWE-bench    |          End-To-End          |       ARXIV        | 2024-08 | [Paper](https://arxiv.org/abs/2408.14354)<br/>[Code](https://github.com/multi-swe-bench/multi-swe-bench-env) |
-| SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?                             | SWE-bench Mutimodal |          End-To-End          |      ICLR'25       | 2024-10 |         [Paper](https://arxiv.org/abs/2410.03859)<br/>[Code](https://github.com/swe-bench/SWE-bench)         |
-| SWE-Bench+: Enhanced Coding Benchmark for LLMs                                                         |     SWE-Bench+      |          End-To-End          |       ARXIV        | 2024-10 |                                  [Paper](https://arxiv.org/abs/2410.06992)                                   |
-| TestGenEval: A Real World Unit Test Generation and Test Completion Benchmark                           |     TestGenEval     | Reproduction Test Generation |      ICLR'25       | 2024-10 |      [Paper](https://arxiv.org/abs/2410.00752)<br/>[Code](https://figshare.com/s/51171ae97cd21d233d4f)       |
-| A Real-World Benchmark for Evaluating Fine-Grained Issue Solving Capabilities of Large Language Models |      FAUN-Eval      |          End-To-End          |       ARXIV        | 2024-11 |                                  [Paper](https://arxiv.org/pdf/2411.18019)                                   |
-| TDD-Bench Verified: Can LLMs Generate Tests for Issues Before They Get Resolved?                       |      TDD-Bench      | Reproduction Test Generation |       ARXIV        | 2024-11 |        [Paper](http://arxiv.org/abs/2412.02883)<br/>[Code](https://github.com/IBM/TDD-Bench-Verified)        |
-| Multi-SWE-bench: A Multilingual Benchmark for Issue Resolving                                          |   Muti-SWE-bench    |          End-To-End          |       ARXIV        | 2025-04 |   [Paper](https://arxiv.org/abs/2504.02605)<br/>[Code](https://github.com/multi-swe-bench/multi-swe-bench)   |
-| LocAgent: Graph-Guided LLM Agents for Code Localization                                                |      LocBench       |         Localization         |       ARXIV        | 2025-03 |            [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://arxiv.org/abs/2503.09089)            |
+| Literature                                                                                             |          Name          |            Scope             | Journal/Conference |  Time   |                                                     Link                                                     |
+|:-------------------------------------------------------------------------------------------------------|:----------------------:|:----------------------------:|:------------------:|:-------:|:------------------------------------------------------------------------------------------------------------:|
+| SWE-bench: Can Language Models Resolve Real-World GitHub Issues?                                       |       SWE-bench        |          End-To-End          |      ICLR'24       | 2023-10 |         [Paper](https://arxiv.org/abs/2310.06770)<br/>[Code](https://github.com/swe-bench/SWE-bench)         |
+| SWT-Bench: Testing and Validating Real-World Bug-Fixes with Code Agents                                |       SWT-Bench        | Reproduction Test Generation |      ICLR'25       | 2024-06 |       [Paper](https://arxiv.org/abs/2406.12952)<br/>[Code](https://github.com/logic-star-ai/SWT-Bench)       |
+| SWE-bench-java: A GitHub Issue Resolving Benchmark for Java                                            |     Muti-SWE-bench     |          End-To-End          |       ARXIV        | 2024-08 | [Paper](https://arxiv.org/abs/2408.14354)<br/>[Code](https://github.com/multi-swe-bench/multi-swe-bench-env) |
+| SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?                             |  SWE-bench Mutimodal   |          End-To-End          |      ICLR'25       | 2024-10 |         [Paper](https://arxiv.org/abs/2410.03859)<br/>[Code](https://github.com/swe-bench/SWE-bench)         |
+| SWE-Bench+: Enhanced Coding Benchmark for LLMs                                                         |       SWE-Bench+       |          End-To-End          |       ARXIV        | 2024-10 |                                  [Paper](https://arxiv.org/abs/2410.06992)                                   |
+| TestGenEval: A Real World Unit Test Generation and Test Completion Benchmark                           |      TestGenEval       | Reproduction Test Generation |      ICLR'25       | 2024-10 |      [Paper](https://arxiv.org/abs/2410.00752)<br/>[Code](https://figshare.com/s/51171ae97cd21d233d4f)       |
+| A Real-World Benchmark for Evaluating Fine-Grained Issue Solving Capabilities of Large Language Models |       FAUN-Eval        |          End-To-End          |       ARXIV        | 2024-11 |                                  [Paper](https://arxiv.org/pdf/2411.18019)                                   |
+| TDD-Bench Verified: Can LLMs Generate Tests for Issues Before They Get Resolved?                       |       TDD-Bench        | Reproduction Test Generation |       ARXIV        | 2024-11 |        [Paper](http://arxiv.org/abs/2412.02883)<br/>[Code](https://github.com/IBM/TDD-Bench-Verified)        |
+| CodeV: Issue Resolving with Visual Data                                                                |    Visual SWE-bench    |          End-To-End          |       ARXIV        | 2024-12 |           [Paper](http://arxiv.org/abs/2412.17315)<br/>[Code](https://github.com/luolin101/CodeV)            |
+| Multi-SWE-bench: A Multilingual Benchmark for Issue Resolving                                          |     Muti-SWE-bench     |          End-To-End          |       ARXIV        | 2025-04 |   [Paper](https://arxiv.org/abs/2504.02605)<br/>[Code](https://github.com/multi-swe-bench/multi-swe-bench)   |
+| LiveSWEBench                                                                                           |      LiveSWEBench      |          End-To-End          |        BLOG        | 2025-04 |            [link](https://liveswebench.ai/)<br/>[Code](https://github.com/livebench/liveswebench)            |
+| LocAgent: Graph-Guided LLM Agents for Code Localization                                                |        LocBench        |         Localization         |       ARXIV        | 2025-03 |        [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://github.com/gersteinlab/LocAgent)         |
+| OmniGIRL: A Multilingual and Multimodal Benchmark for GitHub Issue Resolution                          |        OmniGIRL        |          End-To-End          |      ISSTA'25      | 2025-05 |   [Paper](https://arxiv.org/abs/2505.04606)<br/>[Code](https://github.com/DeepSoftwareAnalytics/OmniGIRL)    |
+| SWE-bench Multilingual                                                                                 | SWE-bench Multilingual |          End-To-End          |        BLOG        | 2025-05 |          [link](https://kabirk.com/multilingual)<br/>[Code](https://github.com/swe-bench/SWE-bench)          |
+| SWE-PolyBench: A multi-language benchmark for repository level evaluation of coding agents             |     SWE-PolyBench      |          End-To-End          |       ARXIV        | 2025-04 |     [Paper](http://arxiv.org/abs/2504.08703)<br/>[Code](https://github.com/amazon-science/SWE-PolyBench)     |
 
 ## Design Paradigms
 
 ### Issue Localization
 
+| Literature                                                                                                         |    Name     | Journal/Conference |  Time   |                                              URL                                              |
+|--------------------------------------------------------------------------------------------------------------------|:-----------:|:------------------:|:-------:|:---------------------------------------------------------------------------------------------:|
+| BLAZE: Cross-Language and Cross-Project Bug Localization via Dynamic Chunking and Hard Example Learning            |    BLAZE    |       Arxiv        | 2024-08 |   [Paper](http://arxiv.org/abs/2407.17631)<br/>[Code](https://zenodo.org/records/15122980)    |
+| OrcaLoca: An LLM Agent Framework for Software Issue Localization                                                   |  OrcaLoca   |       Arxiv        | 2025-02 |  [Paper](http://arxiv.org/abs/2502.00350)<br/>[Code](https://github.com/fishmingyu/OrcaLoca)  |
+| Bridging Bug Localization and Issue Fixing: A Hierarchical Localization Framework Leveraging Large Language Models | BugCerberus |       Arxiv        | 2025-02 |                           [Paper](http://arxiv.org/abs/2502.15292)                            |
+| LocAgent: Graph-Guided LLM Agents for Code Localization                                                            |  LocAgent   |       ARXIV        | 2025-03 | [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://github.com/gersteinlab/LocAgent) |
+| CoSIL: Software Issue Localization via LLM-Driven Code Repository Graph Searching                                  |    CoSIL    |       ARXIV        | 2025-03 |  [Paper](http://arxiv.org/abs/2503.22424)<br/>[Code](https://github.com/ZhonghaoJiang/CoSIL)  |
 
 ### Repair
 
-| Literature                                                                                         |             Name             | Journal/Conference |  Time   |   Label   |                                                    URL                                                     |
-|----------------------------------------------------------------------------------------------------|:----------------------------:|:------------------:|:-------:|:---------:|:----------------------------------------------------------------------------------------------------------:|
-| Swe-agent: Agent-computer interfaces enable automated software engineering                         |          SWE-Agent           |    NeurIPS 2024    | 2024-05 |  @Agent   |        [Paper](https://arxiv.org/abs/2405.15793)<br/>[Code](https://github.com/SWE-agent/SWE-agent)        |
-| Autocoderover: Autonomous program improvement                                                      |        AutoCodeRover         |     ISSTA 2024     | 2024-04 |  @Agent   |  [Paper](https://arxiv.org/abs/2404.05427)<br/>[Code](https://github.com/AutoCodeRoverSG/auto-code-rover)  |
-| CodeR: Issue Resolving with Multi-Agent and Task Graphs                                            |            CodeR             |       Arxiv        | 2024-06 |  @Agent   |           [Paper](https://arxiv.org/abs/2406.01304)<br/>[Code](https://github.com/NL2Code/CodeR)           |
-| Alibaba LingmaAgent: Improving Automated Issue Resolution via Comprehensive Repository Exploration |         LingmaAgent          | FSE Companion 2025 | 2024-06 |  @Agent   | [Paper](https://arxiv.org/abs/2406.01422)<br/>[Code](https://github.com/RepoUnderstander/RepoUnderstander) |
-| MASAI: Modular Architecture for Software-engineering AI Agents                                     |            MASAI             |       Arxiv        | 2024-06 |  @Agent   |                                 [Paper](https://arxiv.org/abs/2406.11638)                                  |
-| Agentless: Demystifying llm-based software engineering agents                                      |          Agentless           |      FSE 2025      | 2024-07 | @Pipeline |      [Paper](https://arxiv.org/abs/2407.01489)<br/>[Code](https://github.com/OpenAutoCoder/Agentless)      |
-| OpenHands: An Open Platform for AI Software Developers as Generalist Agents                        |          OpenHands           |     ICLR 2025      | 2024-07 |  @Agent   |      [Paper](https://arxiv.org/abs/2407.16741)<br/>[Code](https://github.com/All-Hands-AI/OpenHands)       |
-| Specrover: Code intent extraction via llms                                                         | SpecRover (AutoCodeRover-v2) |     ICSE 2025      | 2024-08 |  @Agent   |  [Paper](https://arxiv.org/abs/2408.02232)<br/>[Code](https://github.com/AutoCodeRoverSG/auto-code-rover)  |
-| SuperCoder2.0: Technical Report on Exploring the feasibility of LLMs as Autonomous Programmer      |          SuperCoder          |       Arxiv        | 2024-09 |  @Agent   |                                 [Paper](https://arxiv.org/abs/2409.11190)                                  |
-| Hyperagent: Generalist software engineering agents to solve coding tasks at scale                  |          HyperAgent          |       Arxiv        | 2024-09 |  @Agent   |                                 [Paper](https://arxiv.org/abs/2409.16299)                                  |
-| RepoGraph: Enhancing AI Software Engineering with Repository-level Code Graph                      |          RepoGraph           |     ICLR 2025      | 2024-10 | @Pipeline |         [Paper](https://arxiv.org/abs/2410.14684)<br/>[Code](https://github.com/ozyyshr/RepoGraph)         |
-| SWE-Search: Enhancing Software Agents with Monte Carlo Tree Search and Iterative Refinement        |          SWE-Search          |     ICLR 2025      | 2024-10 |  @Agent   |   [Paper](https://arxiv.org/abs/2410.20285)<br/>[Code](https://github.com/aorwall/moatless-tree-search)    |
-| Infant Agent: A Tool-Integrated, Logic-Driven Agent with Cost-Effective API Usage                  |         Infant Agent         |       Arxiv        | 2024-11 |  @Agent   |                                 [Paper](https://arxiv.org/abs/2411.01114)                                  |
-| MarsCode Agent: AI-native Automated Bug Fixing                                                     |        MarsCode Agent        |       Arxiv        | 2024-11 |  @Agent   |                                 [Paper](https://arxiv.org/abs/2409.00899)                                  |
+| Literature                                                                                            |             Name             | Journal/Conference |  Time   |   Label   |                                                                  URL                                                                  |
+|-------------------------------------------------------------------------------------------------------|:----------------------------:|:------------------:|:-------:|:---------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
+| Swe-agent: Agent-computer interfaces enable automated software engineering                            |          SWE-Agent           |    NeurIPS 2024    | 2024-05 |  @Agent   |                     [Paper](https://arxiv.org/abs/2405.15793)<br/>[Code](https://github.com/SWE-agent/SWE-agent)                      |
+| Autocoderover: Autonomous program improvement                                                         |        AutoCodeRover         |     ISSTA 2024     | 2024-04 |  @Agent   |               [Paper](https://arxiv.org/abs/2404.05427)<br/>[Code](https://github.com/AutoCodeRoverSG/auto-code-rover)                |
+| CodeR: Issue Resolving with Multi-Agent and Task Graphs                                               |            CodeR             |       Arxiv        | 2024-06 |  @Agent   |                        [Paper](https://arxiv.org/abs/2406.01304)<br/>[Code](https://github.com/NL2Code/CodeR)                         |
+| Alibaba LingmaAgent: Improving Automated Issue Resolution via Comprehensive Repository Exploration    | LingmaAgent/RepoUnderstander | FSE Companion 2025 | 2024-06 |  @Agent   |              [Paper](https://arxiv.org/abs/2406.01422)<br/>[Code](https://github.com/RepoUnderstander/RepoUnderstander)               |
+| MAGIS: LLM-Based Multi-Agent Framework for GitHub Issue Resolution                                    |            MAGIS             |    NeurIPS 2024    | 2024-06 |  @Agent   |                                               [Paper](http://arxiv.org/abs/2403.17927)                                                |
+| MASAI: Modular Architecture for Software-engineering AI Agents                                        |            MASAI             |       Arxiv        | 2024-06 |  @Agent   |                                               [Paper](https://arxiv.org/abs/2406.11638)                                               |
+| Agentless: Demystifying llm-based software engineering agents                                         |          Agentless           |      FSE 2025      | 2024-07 | @Pipeline |                   [Paper](https://arxiv.org/abs/2407.01489)<br/>[Code](https://github.com/OpenAutoCoder/Agentless)                    |
+| OpenHands: An Open Platform for AI Software Developers as Generalist Agents                           |          OpenHands           |     ICLR 2025      | 2024-07 |  @Agent   |                    [Paper](https://arxiv.org/abs/2407.16741)<br/>[Code](https://github.com/All-Hands-AI/OpenHands)                    |
+| Specrover: Code intent extraction via llms                                                            | SpecRover (AutoCodeRover-v2) |     ICSE 2025      | 2024-08 |  @Agent   |               [Paper](https://arxiv.org/abs/2408.02232)<br/>[Code](https://github.com/AutoCodeRoverSG/auto-code-rover)                |
+| CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases             |          CodexGraph          |       Arxiv        | 2024-08 |  @Agent   | [Paper](http://arxiv.org/abs/2408.03910)<br/>[Code](https://github.com/modelscope/modelscope-agent/tree/master/apps/codexgraph_agent) |
+| SuperCoder2.0: Technical Report on Exploring the feasibility of LLMs as Autonomous Programmer         |          SuperCoder          |       Arxiv        | 2024-09 |  @Agent   |                                               [Paper](https://arxiv.org/abs/2409.11190)                                               |
+| Hyperagent: Generalist software engineering agents to solve coding tasks at scale                     |          HyperAgent          |       Arxiv        | 2024-09 |  @Agent   |                                               [Paper](https://arxiv.org/abs/2409.16299)                                               |
+| RepoGraph: Enhancing AI Software Engineering with Repository-level Code Graph                         |          RepoGraph           |     ICLR 2025      | 2024-10 | @Pipeline |                      [Paper](https://arxiv.org/abs/2410.14684)<br/>[Code](https://github.com/ozyyshr/RepoGraph)                       |
+| SWE-Search: Enhancing Software Agents with Monte Carlo Tree Search and Iterative Refinement           |          SWE-Search          |     ICLR 2025      | 2024-10 |  @Agent   |                 [Paper](https://arxiv.org/abs/2410.20285)<br/>[Code](https://github.com/aorwall/moatless-tree-search)                 |
+| OpenHands: An Open Platform for AI Software Developers as Generalist Agents                           |      OpenHands CodeAct       |     ICLR 2025      | 2024-10 |  @Agent   |                    [Paper](http://arxiv.org/abs/2407.16741)<br/>[Code](https://github.com/All-Hands-AI/OpenHands)                     |
+| Infant Agent: A Tool-Integrated, Logic-Driven Agent with Cost-Effective API Usage                     |         Infant Agent         |       Arxiv        | 2024-11 |  @Agent   |                                               [Paper](https://arxiv.org/abs/2411.01114)                                               |
+| MarsCode Agent: AI-native Automated Bug Fixing                                                        |        MarsCode Agent        |       Arxiv        | 2024-11 |  @Agent   |                                               [Paper](https://arxiv.org/abs/2409.00899)                                               |
+| Lingma SWE-GPT: An Open Development-Process-Centric Language Model for Automated Software Improvement |         SWESynInfer          | FSE 2025 Industry  | 2024-11 | @Pipeline |                 [Paper](https://arxiv.org/abs/2411.00622)<br/>[Code](https://github.com/LingmaTongyi/Lingma-SWE-GPT)                  |
+| CodeV: Issue Resolving with Visual Data                                                               |            CodeV             |       Arxiv        | 2024-12 | @Pipeline |                        [Paper](http://arxiv.org/abs/2412.17315)<br/>[Code](https://github.com/luolin101/CodeV)                        |
+| Learn-by-interact: A Data-Centric Framework for Self-Adaptive Agents in Realistic Environments        |      Learn-By-Interact       |       Arxiv        | 2025-01 |  @Agent   |                                               [Paper](http://arxiv.org/abs/2501.10893)                                                |
+| PatchPilot: A Stable and Cost-Efficient Agentic Patching Framework                                    |          PatchPilot          |       Arxiv        | 2025-02 | @Pipeline |                                               [Paper](http://arxiv.org/abs/2502.02747)                                                |
+| CodeMonkeys: Scaling Test-Time Compute for Software Engineering                                       |         CodeMonkeys          |       Arxiv        | 2025-02 | @Pipeline |            [Paper](http://arxiv.org/abs/2501.14723)<br/>[Code](https://scalingintelligence.stanford.edu/pubs/codemonkeys/)            |
+| DARS: Dynamic Action Re-Sampling to Enhance Coding Agent Performance by Adaptive Tree Traversal       |             DARS             |       Arxiv        | 2025-03 |  @Agent   |                   [Paper](http://arxiv.org/abs/2503.14269)<br/>[Code](https://github.com/vaibhavagg303/DARS-Agent)                    |
+| Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs                      |          KGCompass           |       Arxiv        | 2025-03 | @Pipeline |                                               [Paper](http://arxiv.org/abs/2503.21710)                                                |
 
 
 ### Patch Validation
 
-
+| Literature                                                                            |    Name    | Journal/Conference |  Time   |     Label     |                                                  URL                                                   |
+|---------------------------------------------------------------------------------------|:----------:|:------------------:|:-------:|:-------------:|:------------------------------------------------------------------------------------------------------:|
+| Diversity Empowers Intelligence: Integrating Expertise of Software Engineering Agents |    DEI     |     ICLR 2025      | 2024-08 |    @Rerank    | [Paper](http://arxiv.org/abs/2408.07060)<br/>[Code](https://salesforce-research-dei-agents.github.io/) |
+| AEGIS: An Agent-based Framework for General Bug Reproduction from Issue Descriptions  |   AEGIS    | FSE 2025 Industry  | 2024-11 | @Reproduction |                                [Paper](http://arxiv.org/abs/2411.18015)                                |
+| Agentic Bug Reproduction for Effective Automated Program Repair at Google             | BRT Agent  |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.01821)                                |
+| Otter: Generating Tests from Issues to Validate SWE Patches                           |   Otter    |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.05368)                                |
+| Issue2Test: Generating Reproducing Test Cases from Issue Reports                      | Issue2Test |       Arxiv        | 2025-03 | @Reproduction |                                [Paper](http://arxiv.org/abs/2503.16320)                                |
 
 ## Foundation Model
 
-| Literature                                                                                            |      Name      | Journal/Conference | Time | Label |                    URL                    |
-|-------------------------------------------------------------------------------------------------------|:--------------:|:------------------:|:----:|:-----:|:-----------------------------------------:|
-| Lingma SWE-GPT: An Open Development-Process-Centric Language Model for Automated Software Improvement | Lingma SWE-GPT | FSE 2025 Industry  | 2024 | @SFT  | [Paper](https://arxiv.org/abs/2411.00622) |
+### Data
+
+| Literature                                                                                                   |   Name    | Journal/Conference |  Time   |                                               URL                                               |
+|--------------------------------------------------------------------------------------------------------------|:---------:|:------------------:|:-------:|:-----------------------------------------------------------------------------------------------:|
+| Training Software Engineering Agents and Verifiers with SWE-Gym                                              |  SWE-Gym  |       ARXIV        | 2024-12 |     [Paper](http://arxiv.org/abs/2412.21139)<br/>[Code](https://github.com/SWE-Gym/SWE-Gym)     |
+| R2E-Gym: Procedural Environments and Hybrid Verifiers for Scaling Open-Weights SWE Agents                    |  R2E-Gym  |       ARXIV        | 2024-04 |     [Paper](http://arxiv.org/abs/2504.07164)<br/>[Code](https://github.com/R2E-Gym/R2E-Gym)     |
+| SWE-Synth: Synthesizing Verifiable Bug-Fix Data to Enable Large Language Models in Resolving Real-World Bugs | SWE-Synth |       ARXIV        | 2024-04 | [Paper](http://arxiv.org/abs/2504.14757)<br/>[Code](https://github.com/FSoft-AI4Code/SWE-Synth) |
+| SWE-smith: Scaling Data for Software Engineering Agents                                                      | SWE-smith |       ARXIV        | 2024-05 |           [Paper](http://arxiv.org/abs/2504.21798)<br/>[Code](https://swesmith.com/)            |
+
+### Training
+
+| Literature                                                                                            |      Name      | Journal/Conference |  Time   | Label |                                                 URL                                                  |
+|-------------------------------------------------------------------------------------------------------|:--------------:|:------------------:|:-------:|:-----:|:----------------------------------------------------------------------------------------------------:|
+| Lingma SWE-GPT: An Open Development-Process-Centric Language Model for Automated Software Improvement | Lingma SWE-GPT | FSE 2025 Industry  | 2024-11 | @SFT  |                              [Paper](https://arxiv.org/abs/2411.00622)                               |
+| Repository Structure-Aware Training Makes SLMs Better Issue Resolver                                  |     ReSAT      |       ARXIV        | 2024-12 | @SFT  |                               [Paper](http://arxiv.org/abs/2412.19031)                               |
+| SWE-Fixer: Training Open-Source LLMs for Effective and Efficient GitHub Issue Resolution              |   SWE-Fixer    |       ARXIV        | 2025-02 | @SFT  |                               [Paper](http://arxiv.org/abs/2501.05040)                               |
+| SWE-RL: Advancing LLM Reasoning via Reinforcement Learning on Open Software Evolution                 |     SWE-RL     |       ARXIV        | 2025-02 |  @RL  |   [Paper](http://arxiv.org/abs/2502.18449)<br/>[Code](https://github.com/facebookresearch/swe-rl)    |
+| SoRFT: Issue Resolving with Subtask-oriented Reinforced Fine-Tuning                                   |     SoRFT      |       ARXIV        | 2025-02 |  @RL  |                               [Paper](http://arxiv.org/abs/2502.20127)                               |
+| SEAlign: Alignment Training for Software Engineering Agent                                            |    SEAlign     |       ARXIV        | 2025-03 | @SFT  |                               [Paper](http://arxiv.org/abs/2503.18455)                               |
+| Thinking Longer, Not Larger: Enhancing Software Engineering Agents via Scaling Test-Time Compute      |  SWE-Reasoner  |       ARXIV        | 2025-04 |  @RL  | [Paper](https://arxiv.org/pdf/2503.23803) <br/>[Code](https://github.com/yingweima2022/SWE-Reasoner) |
+
+## Empirical Studies
+
+| Literature                                                                                  | Journal/Conference |  Time   |                   URL                    |
+|---------------------------------------------------------------------------------------------|:------------------:|:-------:|:----------------------------------------:|
+| An Empirical Study on LLM-based Agents for Automated Bug Fixing                             |       ARXIV        | 2024-10 | [Paper](http://arxiv.org/abs/2411.10213) |
+| Unveiling Pitfalls: Understanding Why AI-driven Code Agents Fail at GitHub Issue Resolution |       ARXIV        | 2025-03 | [Paper](http://arxiv.org/abs/2503.12374) |
+| Are "Solved Issues" in SWE-bench Really Solved Correctly? An Empirical Study                |       ARXIV        | 2025-03 | [Paper](http://arxiv.org/abs/2503.15223) |
