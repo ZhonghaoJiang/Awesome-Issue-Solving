@@ -142,9 +142,9 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 
 ## Empirical Studies
 
-| Literature                                                                                  | Journal/Conference |  Time   |                   URL                    |
-|---------------------------------------------------------------------------------------------|:------------------:|:-------:|:----------------------------------------:|
-| An Empirical Study on LLM-based Agents for Automated Bug Fixing                             |       ARXIV        | 2024-10 | [Paper](http://arxiv.org/abs/2411.10213) |
-| Evaluating Software Development Agents: Patch Patterns, Code Quality, and Issue Complexity in Real-World GitHub Scenarios                             |       ARXIV        | 2024-12 | [Paper](http://arxiv.org/abs/2410.12468) |
-| Unveiling Pitfalls: Understanding Why AI-driven Code Agents Fail at GitHub Issue Resolution |       ARXIV        | 2025-03 | [Paper](http://arxiv.org/abs/2503.12374) |
-| Are "Solved Issues" in SWE-bench Really Solved Correctly? An Empirical Study                |       ARXIV        | 2025-03 | [Paper](http://arxiv.org/abs/2503.15223) |
+| Literature                                                                                                                | Journal/Conference |  Time   |                   URL                    |
+|---------------------------------------------------------------------------------------------------------------------------|:------------------:|:-------:|:----------------------------------------:|
+| An Empirical Study on LLM-based Agents for Automated Bug Fixing                                                           |       ARXIV        | 2024-10 | [Paper](http://arxiv.org/abs/2411.10213) |
+| Evaluating Software Development Agents: Patch Patterns, Code Quality, and Issue Complexity in Real-World GitHub Scenarios |       ARXIV        | 2024-12 | [Paper](http://arxiv.org/abs/2410.12468) |
+| Unveiling Pitfalls: Understanding Why AI-driven Code Agents Fail at GitHub Issue Resolution                               |       ARXIV        | 2025-03 | [Paper](http://arxiv.org/abs/2503.12374) |
+| Are "Solved Issues" in SWE-bench Really Solved Correctly? An Empirical Study                                              |       ARXIV        | 2025-03 | [Paper](http://arxiv.org/abs/2503.15223) |
