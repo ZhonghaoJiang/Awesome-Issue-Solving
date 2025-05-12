@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Up to 2025-04-06, automated GitHub issue solving technologies can be mainly surveyed from 2 perspectives:
+Up to 2025-05-12, automated GitHub issue solving technologies can be mainly surveyed from 2 perspectives:
 Design Paradigms and Foundation Model.
 
 From the perspective of Design Paradigms, we can classify them into 3 categories:
@@ -46,6 +46,7 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 | Multi-SWE-bench: A Multilingual Benchmark for Issue Resolving                                          |     Muti-SWE-bench     |          End-To-End          |       ARXIV        | 2025-04 |   [Paper](https://arxiv.org/abs/2504.02605)<br/>[Code](https://github.com/multi-swe-bench/multi-swe-bench)   |
 | LiveSWEBench                                                                                           |      LiveSWEBench      |          End-To-End          |        BLOG        | 2025-04 |            [link](https://liveswebench.ai/)<br/>[Code](https://github.com/livebench/liveswebench)            |
 | LocAgent: Graph-Guided LLM Agents for Code Localization                                                |        LocBench        |         Localization         |       ARXIV        | 2025-03 |        [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://github.com/gersteinlab/LocAgent)         |
+| Automated Benchmark Generation for Repository-Level Coding Tasks                                       |  SWEE-Bench/SWA-Bench  |          End-To-End          |       ARXIV        | 2025-03 |                                   [Paper](http://arxiv.org/abs/2503.07701)                                   |
 | OmniGIRL: A Multilingual and Multimodal Benchmark for GitHub Issue Resolution                          |        OmniGIRL        |          End-To-End          |      ISSTA'25      | 2025-05 |   [Paper](https://arxiv.org/abs/2505.04606)<br/>[Code](https://github.com/DeepSoftwareAnalytics/OmniGIRL)    |
 | SWE-bench Multilingual                                                                                 | SWE-bench Multilingual |          End-To-End          |        BLOG        | 2025-05 |          [link](https://kabirk.com/multilingual)<br/>[Code](https://github.com/swe-bench/SWE-bench)          |
 | SWE-PolyBench: A multi-language benchmark for repository level evaluation of coding agents             |     SWE-PolyBench      |          End-To-End          |       ARXIV        | 2025-04 |     [Paper](http://arxiv.org/abs/2504.08703)<br/>[Code](https://github.com/amazon-science/SWE-PolyBench)     |
@@ -66,7 +67,7 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 
 | Literature                                                                                            |             Name             | Journal/Conference |  Time   |   Label   |                                                                  URL                                                                  |
 |-------------------------------------------------------------------------------------------------------|:----------------------------:|:------------------:|:-------:|:---------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| Swe-agent: Agent-computer interfaces enable automated software engineering                            |          SWE-Agent           |    NeurIPS 2024    | 2024-05 |  @Agent   |                     [Paper](https://arxiv.org/abs/2405.15793)<br/>[Code](https://github.com/SWE-agent/SWE-agent)                      |
+| SWE-agent: Agent-computer interfaces enable automated software engineering                            |          SWE-Agent           |    NeurIPS 2024    | 2024-05 |  @Agent   |                     [Paper](https://arxiv.org/abs/2405.15793)<br/>[Code](https://github.com/SWE-agent/SWE-agent)                      |
 | Autocoderover: Autonomous program improvement                                                         |        AutoCodeRover         |     ISSTA 2024     | 2024-04 |  @Agent   |               [Paper](https://arxiv.org/abs/2404.05427)<br/>[Code](https://github.com/AutoCodeRoverSG/auto-code-rover)                |
 | CodeR: Issue Resolving with Multi-Agent and Task Graphs                                               |            CodeR             |       Arxiv        | 2024-06 |  @Agent   |                        [Paper](https://arxiv.org/abs/2406.01304)<br/>[Code](https://github.com/NL2Code/CodeR)                         |
 | Alibaba LingmaAgent: Improving Automated Issue Resolution via Comprehensive Repository Exploration    | LingmaAgent/RepoUnderstander | FSE Companion 2025 | 2024-06 |  @Agent   |              [Paper](https://arxiv.org/abs/2406.01422)<br/>[Code](https://github.com/RepoUnderstander/RepoUnderstander)               |
@@ -94,13 +95,14 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 
 ### Patch Validation
 
-| Literature                                                                            |    Name    | Journal/Conference |  Time   |     Label     |                                                  URL                                                   |
-|---------------------------------------------------------------------------------------|:----------:|:------------------:|:-------:|:-------------:|:------------------------------------------------------------------------------------------------------:|
-| Diversity Empowers Intelligence: Integrating Expertise of Software Engineering Agents |    DEI     |     ICLR 2025      | 2024-08 |    @Rerank    | [Paper](http://arxiv.org/abs/2408.07060)<br/>[Code](https://salesforce-research-dei-agents.github.io/) |
-| AEGIS: An Agent-based Framework for General Bug Reproduction from Issue Descriptions  |   AEGIS    | FSE 2025 Industry  | 2024-11 | @Reproduction |                                [Paper](http://arxiv.org/abs/2411.18015)                                |
-| Agentic Bug Reproduction for Effective Automated Program Repair at Google             | BRT Agent  |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.01821)                                |
-| Otter: Generating Tests from Issues to Validate SWE Patches                           |   Otter    |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.05368)                                |
-| Issue2Test: Generating Reproducing Test Cases from Issue Reports                      | Issue2Test |       Arxiv        | 2025-03 | @Reproduction |                                [Paper](http://arxiv.org/abs/2503.16320)                                |
+| Literature                                                                                   |    Name    | Journal/Conference |  Time   |     Label     |                                                  URL                                                   |
+|----------------------------------------------------------------------------------------------|:----------:|:------------------:|:-------:|:-------------:|:------------------------------------------------------------------------------------------------------:|
+| Diversity Empowers Intelligence: Integrating Expertise of Software Engineering Agents        |    DEI     |     ICLR 2025      | 2024-08 |    @Rerank    | [Paper](http://arxiv.org/abs/2408.07060)<br/>[Code](https://salesforce-research-dei-agents.github.io/) |
+| AEGIS: An Agent-based Framework for General Bug Reproduction from Issue Descriptions         |   AEGIS    | FSE 2025 Industry  | 2024-11 | @Reproduction |                                [Paper](http://arxiv.org/abs/2411.18015)                                |
+| LLMs as Continuous Learners: Improving the Reproduction of Defective Code in Software Issues |  EvoCoder  |       ARXIV        | 2024-11 | @Reproduction |                                [Paper](http://arxiv.org/abs/2411.13941)                                |
+| Agentic Bug Reproduction for Effective Automated Program Repair at Google                    | BRT Agent  |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.01821)                                |
+| Otter: Generating Tests from Issues to Validate SWE Patches                                  |   Otter    |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.05368)                                |
+| Issue2Test: Generating Reproducing Test Cases from Issue Reports                             | Issue2Test |       Arxiv        | 2025-03 | @Reproduction |                                [Paper](http://arxiv.org/abs/2503.16320)                                |
 
 ## Foundation Model
 
