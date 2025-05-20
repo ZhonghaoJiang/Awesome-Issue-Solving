@@ -2,35 +2,35 @@
 
 ## Introduction
 
-Up to 2025-05-12, automated GitHub issue solving technologies can be mainly surveyed from 2 perspectives:
-Design Paradigms and Foundation Model.
+We classified this survey into three main parts: `Benchmarks`, `Technologies` and `Empirical Studies`.
 
-From the perspective of Design Paradigms, we can classify them into 3 categories:
 
-> @Agent-Based Method  
-> @Pipeline-Based Method  
-> @RAG-Based Method
+Up to 2025-05-12, automated GitHub issue solving `technologies` can be mainly surveyed from 2 perspectives:
+`Design Scopes` and `Learning Strategy`.
 
-The workflow of these methods usually includes 3 phases: localization, repair, and patch validation.
-
-From the perspective of Foundation Model, we can classify them into 2 categories:
-
-> @SFT-Based Method  
-> @RL-Based Method
 
 ## Table of Contents
 
 - [Benchmarks](#benchmarks)
-- [Design Paradigms](#design-paradigms)
-    - [Issue Localization](#issue-localization)
-    - [Repair](#repair)
-    - [Patch Validation](#patch-validation)
-- [Foundation Model](#foundation-model)
-    - [Data](#data)
-    - [Training](#training)
+- [Technologies](#technologies)
+  - [Design Scopes](#design-scopes)
+    - [End-to-End](#end-to-end)
+    - [Single-Phased](#single-phased)
+        - [Issue Localization](#issue-localization)
+        - [Patch Validation](#patch-validation)
+  - [Learning Strategy](#learning-strategy)
+    - [Training-Free](#training-free)
+    - [Training-Based](#training-based)
+        - [Data](#data)
+        - [Training](#training)
 - [Empirical Studies](#empirical-studies)
 
 ## Benchmarks
+
+For `Benchmarks`, we summarized the existing benchmarks into 2 categories for their different tasks.
+> @End-To-End  
+> @Reproduction Test Generation  
+> @Localization
 
 | Literature                                                                                             |          Name          |            Scope             | Journal/Conference |  Time   |                                                     Link                                                     |
 |:-------------------------------------------------------------------------------------------------------|:----------------------:|:----------------------------:|:------------------:|:-------:|:------------------------------------------------------------------------------------------------------------:|
@@ -52,24 +52,22 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 | -                                                                                                      | SWE-bench Multilingual |          End-To-End          |        BLOG        | 2025-05 |          [link](https://kabirk.com/multilingual)<br/>[Code](https://github.com/swe-bench/SWE-bench)          |
 | SWE-PolyBench: A multi-language benchmark for repository level evaluation of coding agents             |     SWE-PolyBench      |          End-To-End          |       ARXIV        | 2025-04 |     [Paper](http://arxiv.org/abs/2504.08703)<br/>[Code](https://github.com/amazon-science/SWE-PolyBench)     |
 
-## Design Paradigms
+## Technologies
+### Design Scopes
 
-### Issue Localization
+From the perspective of `Design Paradigms`, we can classify them into 2 categories following benchmarks:
+> @End-To-End  
+> @Single-Phased
 
-| Literature                                                                                                         |    Name     | Journal/Conference |  Time   |                                              URL                                              |
-|--------------------------------------------------------------------------------------------------------------------|:-----------:|:------------------:|:-------:|:---------------------------------------------------------------------------------------------:|
-| BLAZE: Cross-Language and Cross-Project Bug Localization via Dynamic Chunking and Hard Example Learning            |    BLAZE    |       Arxiv        | 2024-08 |   [Paper](http://arxiv.org/abs/2407.17631)<br/>[Code](https://zenodo.org/records/15122980)    |
-| OrcaLoca: An LLM Agent Framework for Software Issue Localization                                                   |  OrcaLoca   |     ICML 2025      | 2025-02 |  [Paper](http://arxiv.org/abs/2502.00350)<br/>[Code](https://github.com/fishmingyu/OrcaLoca)  |
-| Bridging Bug Localization and Issue Fixing: A Hierarchical Localization Framework Leveraging Large Language Models | BugCerberus |       Arxiv        | 2025-02 |                           [Paper](http://arxiv.org/abs/2502.15292)                            |
-| LocAgent: Graph-Guided LLM Agents for Code Localization                                                            |  LocAgent   |      ACL 2025      | 2025-03 | [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://github.com/gersteinlab/LocAgent) |
-| CoSIL: Software Issue Localization via LLM-Driven Code Repository Graph Searching                                  |    CoSIL    |       ARXIV        | 2025-03 |  [Paper](http://arxiv.org/abs/2503.22424)<br/>[Code](https://github.com/ZhonghaoJiang/CoSIL)  |
-| SweRank: Software Issue Localization with Code Ranking                                                             |   SweRank   |       Arxiv        | 2025-05 |   [Paper](https://arxiv.org/abs/2505.07849)<br/>[Code](https://gangiswag.github.io/swerank)   |
+#### End-to-End
 
-### Repair
+For End-To-End Method, we can further classify them into 2 categories:
+> @Agent-Based Method  
+> @Pipeline-Based Method
 
 | Literature                                                                                            |             Name             | Journal/Conference |  Time   |   Label   |                                                                                         URL                                                                                          |
 |-------------------------------------------------------------------------------------------------------|:----------------------------:|:------------------:|:-------:|:---------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| SWE-bench: Can Language Models Resolve Real-World GitHub Issues?                                      |           BM25 RAG           |     ICLR 2024      | 2023-10 |   @RAG    |                              [Paper](https://arxiv.org/abs/2310.06770)<br/>[Code](https://github.com/SWE-bench/SWE-bench/tree/main/swebench/inference)                               |
+| SWE-bench: Can Language Models Resolve Real-World GitHub Issues?                                      |           BM25 RAG           |     ICLR 2024      | 2023-10 | @Pipeline |                              [Paper](https://arxiv.org/abs/2310.06770)<br/>[Code](https://github.com/SWE-bench/SWE-bench/tree/main/swebench/inference)                               |
 | SWE-agent: Agent-computer interfaces enable automated software engineering                            |          SWE-Agent           |    NeurIPS 2024    | 2024-05 |  @Agent   |                                             [Paper](https://arxiv.org/abs/2405.15793)<br/>[Code](https://github.com/SWE-agent/SWE-agent)                                             |
 | Autocoderover: Autonomous program improvement                                                         |        AutoCodeRover         |     ISSTA 2024     | 2024-04 |  @Agent   |                                       [Paper](https://arxiv.org/abs/2404.05427)<br/>[Code](https://github.com/AutoCodeRoverSG/auto-code-rover)                                       |
 | CodeR: Issue Resolving with Multi-Agent and Task Graphs                                               |            CodeR             |       Arxiv        | 2024-06 |  @Agent   |                                                [Paper](https://arxiv.org/abs/2406.01304)<br/>[Code](https://github.com/NL2Code/CodeR)                                                |
@@ -97,7 +95,7 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 | PatchPilot: A Stable and Cost-Efficient Agentic Patching Framework                                    |          PatchPilot          |       Arxiv        | 2025-02 | @Pipeline |                                                                       [Paper](http://arxiv.org/abs/2502.02747)                                                                       |
 | CodeMonkeys: Scaling Test-Time Compute for Software Engineering                                       |         CodeMonkeys          |       Arxiv        | 2025-02 | @Pipeline |                                   [Paper](http://arxiv.org/abs/2501.14723)<br/>[Code](https://scalingintelligence.stanford.edu/pubs/codemonkeys/)                                    |
 | SWE-RL: Advancing LLM Reasoning via Reinforcement Learning on Open Software Evolution                 |        Agentless Mini        |       ARXIV        | 2025-02 | @Pipeline |                                           [Paper](http://arxiv.org/abs/2502.18449)<br/>[Code](https://github.com/facebookresearch/swe-rl)                                            |
-| -                                                                                                     |        Agentless Lite        |        Blog        | 2025-02 |   @RAG    |                                                                 [Code](https://github.com/sorendunn/Agentless-Lite)                                                                  |
+| -                                                                                                     |        Agentless Lite        |        Blog        | 2025-02 | @Pipeline |                                                                 [Code](https://github.com/sorendunn/Agentless-Lite)                                                                  |
 | -                                                                                                     |           Syntheo            |        Blog        | 2025-02 |  @Agent   |                                                       [Link](https://insiders.quadropic.com/insiders/syntheo-tops-swelite-feb)                                                       |
 | -                                                                                                     |          AgentScope          |        Blog        | 2025-03 |  @Agent   |                                                                 [Link](https://doc.agentscope.io/tutorial/swe.html)                                                                  |
 | DARS: Dynamic Action Re-Sampling to Enhance Coding Agent Performance by Adaptive Tree Traversal       |             DARS             |       Arxiv        | 2025-03 |  @Agent   |                                           [Paper](http://arxiv.org/abs/2503.14269)<br/>[Code](https://github.com/vaibhavagg303/DARS-Agent)                                           |
@@ -108,7 +106,30 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 | -                                                                                                     |            Lingxi            |        Blog        | 2025-04 |  @Agent   |              [Link](https://github.com/nimasteryang/Lingxi/blob/master/docs/Lingxi%20Technical%20Report%202505.pdf) <br/>[Code](https://github.com/nimasteryang/Lingxi)              |
 | -                                                                                                     |           Trae IDE           |        Blog        | 2025-05 |  @Agent   |                                                   [Link](https://se-research.bytedance.com/blogs/trae-on-swe-bench-verified.html)                                                    |
 
-### Patch Validation
+#### Single-Phased
+
+The workflow of pipeline-based methods usually includes 3 phases: localization, repair, and patch validation.
+For Single-Phased Method, we discuss them in 3 phases separately:
+> @Localization  
+> @Reproduction  
+> @Rerank
+
+where, `@Reproduction` indicates the reproduction test generation, and `@Rerank` indicates the patch rerank.
+Both of them are used to patch validation.
+
+##### Issue Localization
+
+| Literature                                                                                                         |    Name     | Journal/Conference |  Time   |                                              URL                                              |
+|--------------------------------------------------------------------------------------------------------------------|:-----------:|:------------------:|:-------:|:---------------------------------------------------------------------------------------------:|
+| BLAZE: Cross-Language and Cross-Project Bug Localization via Dynamic Chunking and Hard Example Learning            |    BLAZE    |       Arxiv        | 2024-08 |   [Paper](http://arxiv.org/abs/2407.17631)<br/>[Code](https://zenodo.org/records/15122980)    |
+| OrcaLoca: An LLM Agent Framework for Software Issue Localization                                                   |  OrcaLoca   |     ICML 2025      | 2025-02 |  [Paper](http://arxiv.org/abs/2502.00350)<br/>[Code](https://github.com/fishmingyu/OrcaLoca)  |
+| Bridging Bug Localization and Issue Fixing: A Hierarchical Localization Framework Leveraging Large Language Models | BugCerberus |       Arxiv        | 2025-02 |                           [Paper](http://arxiv.org/abs/2502.15292)                            |
+| LocAgent: Graph-Guided LLM Agents for Code Localization                                                            |  LocAgent   |      ACL 2025      | 2025-03 | [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://github.com/gersteinlab/LocAgent) |
+| CoSIL: Software Issue Localization via LLM-Driven Code Repository Graph Searching                                  |    CoSIL    |       ARXIV        | 2025-03 |  [Paper](http://arxiv.org/abs/2503.22424)<br/>[Code](https://github.com/ZhonghaoJiang/CoSIL)  |
+| SweRank: Software Issue Localization with Code Ranking                                                             |   SweRank   |       Arxiv        | 2025-05 |   [Paper](https://arxiv.org/abs/2505.07849)<br/>[Code](https://gangiswag.github.io/swerank)   |
+
+
+##### Patch Validation
 
 | Literature                                                                                   |    Name    | Journal/Conference |  Time   |     Label     |                                                  URL                                                   |
 |----------------------------------------------------------------------------------------------|:----------:|:------------------:|:-------:|:-------------:|:------------------------------------------------------------------------------------------------------:|
@@ -119,9 +140,23 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 | Otter: Generating Tests from Issues to Validate SWE Patches                                  |   Otter    |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.05368)                                |
 | Issue2Test: Generating Reproducing Test Cases from Issue Reports                             | Issue2Test |       Arxiv        | 2025-03 | @Reproduction |                                [Paper](http://arxiv.org/abs/2503.16320)                                |
 
-## Foundation Model
+### Learning Strategy
 
-### Data
+From the perspective of `Learning Strategy`, we can classify them into 2 categories:
+
+> @Training-Free Method  
+> @Training-Based Method
+
+#### Training-Free
+
+
+#### Training-Based
+
+For Training-Based Method, we can further classify them into 2 categories:
+> @SFT-Based Method  
+> @RL-Based Method
+
+##### Data
 
 | Literature                                                                                                   |   Name    | Journal/Conference |  Time   |                                               URL                                               |
 |--------------------------------------------------------------------------------------------------------------|:---------:|:------------------:|:-------:|:-----------------------------------------------------------------------------------------------:|
@@ -130,7 +165,7 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 | SWE-Synth: Synthesizing Verifiable Bug-Fix Data to Enable Large Language Models in Resolving Real-World Bugs | SWE-Synth |       ARXIV        | 2024-04 | [Paper](http://arxiv.org/abs/2504.14757)<br/>[Code](https://github.com/FSoft-AI4Code/SWE-Synth) |
 | SWE-smith: Scaling Data for Software Engineering Agents                                                      | SWE-smith |       ARXIV        | 2024-05 |           [Paper](http://arxiv.org/abs/2504.21798)<br/>[Code](https://swesmith.com/)            |
 
-### Training
+##### Training
 
 | Literature                                                                                            |      Name      | Journal/Conference |  Time   | Label |                                                 URL                                                  |
 |-------------------------------------------------------------------------------------------------------|:--------------:|:------------------:|:-------:|:-----:|:----------------------------------------------------------------------------------------------------:|
