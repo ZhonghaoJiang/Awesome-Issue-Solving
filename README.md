@@ -61,8 +61,9 @@ From the perspective of Foundation Model, we can classify them into 2 categories
 | BLAZE: Cross-Language and Cross-Project Bug Localization via Dynamic Chunking and Hard Example Learning            |    BLAZE    |       Arxiv        | 2024-08 |   [Paper](http://arxiv.org/abs/2407.17631)<br/>[Code](https://zenodo.org/records/15122980)    |
 | OrcaLoca: An LLM Agent Framework for Software Issue Localization                                                   |  OrcaLoca   |       Arxiv        | 2025-02 |  [Paper](http://arxiv.org/abs/2502.00350)<br/>[Code](https://github.com/fishmingyu/OrcaLoca)  |
 | Bridging Bug Localization and Issue Fixing: A Hierarchical Localization Framework Leveraging Large Language Models | BugCerberus |       Arxiv        | 2025-02 |                           [Paper](http://arxiv.org/abs/2502.15292)                            |
-| LocAgent: Graph-Guided LLM Agents for Code Localization                                                            |  LocAgent   |       ARXIV        | 2025-03 | [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://github.com/gersteinlab/LocAgent) |
-| CoSIL: Software Issue Localization via LLM-Driven Code Repository Graph Searching                                  |    CoSIL    |       ARXIV        | 2025-03 |  [Paper](http://arxiv.org/abs/2503.22424)<br/>[Code](https://github.com/ZhonghaoJiang/CoSIL)  |
+| LocAgent: Graph-Guided LLM Agents for Code Localization                                                            |  LocAgent   |       Arxiv        | 2025-03 | [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://github.com/gersteinlab/LocAgent) |
+| CoSIL: Software Issue Localization via LLM-Driven Code Repository Graph Searching                                  |    CoSIL    |       Arxiv        | 2025-03 |  [Paper](http://arxiv.org/abs/2503.22424)<br/>[Code](https://github.com/ZhonghaoJiang/CoSIL)  |
+| SweRank: Software Issue Localization with Code Ranking                                                             |   SweRank   |       Arxiv        | 2025-05 |   [Paper](https://arxiv.org/abs/2505.07849)<br/>[Code](https://gangiswag.github.io/swerank)   |
 
 ### Repair
 
