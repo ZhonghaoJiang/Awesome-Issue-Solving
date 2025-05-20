@@ -4,25 +4,23 @@
 
 We classified this survey into three main parts: `Benchmarks`, `Technologies` and `Empirical Studies`.
 
-
 Up to 2025-05-12, automated GitHub issue solving `technologies` can be mainly surveyed from 2 perspectives:
 `Design Scopes` and `Learning Strategy`.
-
 
 ## Table of Contents
 
 - [Benchmarks](#benchmarks)
 - [Technologies](#technologies)
-  - [Design Scopes](#design-scopes)
-    - [End-to-End](#end-to-end)
-    - [Single-Phased](#single-phased)
-        - [Issue Localization](#issue-localization)
-        - [Patch Validation](#patch-validation)
-  - [Learning Strategy](#learning-strategy)
-    - [Training-Free](#training-free)
-    - [Training-Based](#training-based)
-        - [Data](#data)
-        - [Training](#training)
+    - [Design Scopes](#design-scopes)
+        - [End-to-End](#end-to-end)
+        - [Single-Phased](#single-phased)
+            - [Issue Localization](#issue-localization)
+            - [Patch Validation](#patch-validation)
+    - [Learning Strategy](#learning-strategy)
+        - [Training-Free](#training-free)
+        - [Training-Based](#training-based)
+            - [Data](#data)
+            - [Training](#training)
 - [Empirical Studies](#empirical-studies)
 
 ## Benchmarks
@@ -53,6 +51,7 @@ For `Benchmarks`, we summarized the existing benchmarks into 2 categories for th
 | SWE-PolyBench: A multi-language benchmark for repository level evaluation of coding agents             |     SWE-PolyBench      |          End-To-End          |       ARXIV        | 2025-04 |     [Paper](http://arxiv.org/abs/2504.08703)<br/>[Code](https://github.com/amazon-science/SWE-PolyBench)     |
 
 ## Technologies
+
 ### Design Scopes
 
 From the perspective of `Design Paradigms`, we can classify them into 2 categories following benchmarks:
@@ -97,6 +96,7 @@ For End-To-End Method, we can further classify them into 2 categories:
 | SWE-RL: Advancing LLM Reasoning via Reinforcement Learning on Open Software Evolution                 |        Agentless Mini        |       ARXIV        | 2025-02 | @Pipeline |                                           [Paper](http://arxiv.org/abs/2502.18449)<br/>[Code](https://github.com/facebookresearch/swe-rl)                                            |
 | -                                                                                                     |        Agentless Lite        |        Blog        | 2025-02 | @Pipeline |                                                                 [Code](https://github.com/sorendunn/Agentless-Lite)                                                                  |
 | -                                                                                                     |           Syntheo            |        Blog        | 2025-02 |  @Agent   |                                                       [Link](https://insiders.quadropic.com/insiders/syntheo-tops-swelite-feb)                                                       |
+| SWE-Fixer: Training Open-Source LLMs for Effective and Efficient GitHub Issue Resolution              |          SWE-Fixer           |       Arxiv        | 2025-02 | @Pipeline |                                                                       [Paper](http://arxiv.org/abs/2501.05040)                                                                       |
 | -                                                                                                     |          AgentScope          |        Blog        | 2025-03 |  @Agent   |                                                                 [Link](https://doc.agentscope.io/tutorial/swe.html)                                                                  |
 | DARS: Dynamic Action Re-Sampling to Enhance Coding Agent Performance by Adaptive Tree Traversal       |             DARS             |       Arxiv        | 2025-03 |  @Agent   |                                           [Paper](http://arxiv.org/abs/2503.14269)<br/>[Code](https://github.com/vaibhavagg303/DARS-Agent)                                           |
 | Enhancing Repository-Level Software Repair via Repository-Aware Knowledge Graphs                      |          KGCompass           |       Arxiv        | 2025-03 | @Pipeline |                                                                       [Paper](http://arxiv.org/abs/2503.21710)                                                                       |
@@ -128,7 +128,6 @@ Both of them are used to patch validation.
 | CoSIL: Software Issue Localization via LLM-Driven Code Repository Graph Searching                                  |    CoSIL    |       ARXIV        | 2025-03 |  [Paper](http://arxiv.org/abs/2503.22424)<br/>[Code](https://github.com/ZhonghaoJiang/CoSIL)  |
 | SweRank: Software Issue Localization with Code Ranking                                                             |   SweRank   |       Arxiv        | 2025-05 |   [Paper](https://arxiv.org/abs/2505.07849)<br/>[Code](https://gangiswag.github.io/swerank)   |
 
-
 ##### Patch Validation
 
 | Literature                                                                                   |    Name    | Journal/Conference |  Time   |     Label     |                                                  URL                                                   |
@@ -149,7 +148,6 @@ From the perspective of `Learning Strategy`, we can classify them into 2 categor
 
 #### Training-Free
 
-
 #### Training-Based
 
 For Training-Based Method, we can further classify them into 2 categories:
@@ -164,18 +162,30 @@ For Training-Based Method, we can further classify them into 2 categories:
 | R2E-Gym: Procedural Environments and Hybrid Verifiers for Scaling Open-Weights SWE Agents                    |  R2E-Gym  |       ARXIV        | 2024-04 |     [Paper](http://arxiv.org/abs/2504.07164)<br/>[Code](https://github.com/R2E-Gym/R2E-Gym)     |
 | SWE-Synth: Synthesizing Verifiable Bug-Fix Data to Enable Large Language Models in Resolving Real-World Bugs | SWE-Synth |       ARXIV        | 2024-04 | [Paper](http://arxiv.org/abs/2504.14757)<br/>[Code](https://github.com/FSoft-AI4Code/SWE-Synth) |
 | SWE-smith: Scaling Data for Software Engineering Agents                                                      | SWE-smith |       ARXIV        | 2024-05 |           [Paper](http://arxiv.org/abs/2504.21798)<br/>[Code](https://swesmith.com/)            |
+| SweRank: Software Issue Localization with Code Ranking                                                       |  SweLoc   |       ARXIV        | 2025-05 |    [Paper](https://arxiv.org/abs/2505.07849)<br/>[Code](https://gangiswag.github.io/swerank)    |
 
 ##### Training
 
-| Literature                                                                                            |      Name      | Journal/Conference |  Time   | Label |                                                 URL                                                  |
-|-------------------------------------------------------------------------------------------------------|:--------------:|:------------------:|:-------:|:-----:|:----------------------------------------------------------------------------------------------------:|
-| Lingma SWE-GPT: An Open Development-Process-Centric Language Model for Automated Software Improvement | Lingma SWE-GPT | FSE 2025 Industry  | 2024-11 | @SFT  |                              [Paper](https://arxiv.org/abs/2411.00622)                               |
-| Repository Structure-Aware Training Makes SLMs Better Issue Resolver                                  |     ReSAT      |       ARXIV        | 2024-12 | @SFT  |                               [Paper](http://arxiv.org/abs/2412.19031)                               |
-| SWE-Fixer: Training Open-Source LLMs for Effective and Efficient GitHub Issue Resolution              |   SWE-Fixer    |       ARXIV        | 2025-02 | @SFT  |                               [Paper](http://arxiv.org/abs/2501.05040)                               |
-| SWE-RL: Advancing LLM Reasoning via Reinforcement Learning on Open Software Evolution                 |     SWE-RL     |       ARXIV        | 2025-02 |  @RL  |   [Paper](http://arxiv.org/abs/2502.18449)<br/>[Code](https://github.com/facebookresearch/swe-rl)    |
-| SoRFT: Issue Resolving with Subtask-oriented Reinforced Fine-Tuning                                   |     SoRFT      |       ARXIV        | 2025-02 |  @RL  |                               [Paper](http://arxiv.org/abs/2502.20127)                               |
-| SEAlign: Alignment Training for Software Engineering Agent                                            |    SEAlign     |       ARXIV        | 2025-03 | @SFT  |                               [Paper](http://arxiv.org/abs/2503.18455)                               |
-| Thinking Longer, Not Larger: Enhancing Software Engineering Agents via Scaling Test-Time Compute      |  SWE-Reasoner  |       ARXIV        | 2025-04 |  @RL  | [Paper](https://arxiv.org/pdf/2503.23803) <br/>[Code](https://github.com/yingweima2022/SWE-Reasoner) |
+Training for generating patches
+
+| Literature                                                                                                         |      Name      | Evaluation Method | Journal/Conference |  Time   | Label |                                                 URL                                                  |
+|--------------------------------------------------------------------------------------------------------------------|:--------------:|:-----------------:|:------------------:|:-------:|:-----:|:----------------------------------------------------------------------------------------------------:|
+| Lingma SWE-GPT: An Open Development-Process-Centric Language Model for Automated Software Improvement              | Lingma SWE-GPT |    SWESynInfer    | FSE 2025 Industry  | 2024-11 | @SFT  |                              [Paper](https://arxiv.org/abs/2411.00622)                               |
+| Repository Structure-Aware Training Makes SLMs Better Issue Resolver                                               |     ReSAT      |     Agentless     |       ARXIV        | 2024-12 | @SFT  |                               [Paper](http://arxiv.org/abs/2412.19031)                               |
+| SWE-Fixer: Training Open-Source LLMs for Effective and Efficient GitHub Issue Resolution                           |   SWE-Fixer    |     SWE-Fixer     |       ARXIV        | 2025-02 | @SFT  |                               [Paper](http://arxiv.org/abs/2501.05040)                               |
+| SWE-RL: Advancing LLM Reasoning via Reinforcement Learning on Open Software Evolution                              |     SWE-RL     |  Agentless Mini   |       ARXIV        | 2025-02 |  @RL  |   [Paper](http://arxiv.org/abs/2502.18449)<br/>[Code](https://github.com/facebookresearch/swe-rl)    |
+| SoRFT: Issue Resolving with Subtask-oriented Reinforced Fine-Tuning                                                |     SoRFT      |     Agentless     |       ARXIV        | 2025-02 |  @RL  |                               [Paper](http://arxiv.org/abs/2502.20127)                               |
+| SEAlign: Alignment Training for Software Engineering Agent                                                         |    SEAlign     |     OpenHands     |       ARXIV        | 2025-03 | @SFT  |                               [Paper](http://arxiv.org/abs/2503.18455)                               |
+| Thinking Longer, Not Larger: Enhancing Software Engineering Agents via Scaling Test-Time Compute                   |  SWE-Reasoner  |   SWE-SynInfer+   |       ARXIV        | 2025-04 |  @RL  | [Paper](https://arxiv.org/pdf/2503.23803) <br/>[Code](https://github.com/yingweima2022/SWE-Reasoner) |
+
+Training for localization
+
+| Literature                                                                                                         |      Name      | Evaluation Method | Journal/Conference |  Time   | Label |                                                 URL                                                  |
+|--------------------------------------------------------------------------------------------------------------------|:--------------:|:-----------------:|:------------------:|:-------:|:-----:|:----------------------------------------------------------------------------------------------------:|
+| BLAZE: Cross-Language and Cross-Project Bug Localization via Dynamic Chunking and Hard Example Learning            |     BLAZE      |         -         |       Arxiv        | 2024-08 | @SFT  |       [Paper](http://arxiv.org/abs/2407.17631)<br/>[Code](https://zenodo.org/records/15122980)       |
+| Bridging Bug Localization and Issue Fixing: A Hierarchical Localization Framework Leveraging Large Language Models |  BugCerberus   |         -         |       Arxiv        | 2025-02 | @SFT  |                               [Paper](http://arxiv.org/abs/2502.15292)                               |
+| LocAgent: Graph-Guided LLM Agents for Code Localization                                                            |    LocAgent    |     LocAgent      |      ACL 2025      | 2025-03 | @SFT  |    [Paper](https://arxiv.org/abs/2503.09089)<br/>[Code](https://github.com/gersteinlab/LocAgent)     |
+| SweRank: Software Issue Localization with Code Ranking                                                             |    SweRank     |         -         |       Arxiv        | 2025-05 | @SFT  |      [Paper](https://arxiv.org/abs/2505.07849)<br/>[Code](https://gangiswag.github.io/swerank)       |
 
 ## Empirical Studies
 
