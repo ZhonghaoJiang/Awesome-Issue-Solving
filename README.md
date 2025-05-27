@@ -140,7 +140,7 @@ Both of them are used to patch validation.
 | AEGIS: An Agent-based Framework for General Bug Reproduction from Issue Descriptions         |   AEGIS    | FSE 2025 Industry  | 2024-11 | @Reproduction |                                [Paper](http://arxiv.org/abs/2411.18015)                                |
 | LLMs as Continuous Learners: Improving the Reproduction of Defective Code in Software Issues |  EvoCoder  |       ARXIV        | 2024-11 | @Reproduction |                                [Paper](http://arxiv.org/abs/2411.13941)                                |
 | Agentic Bug Reproduction for Effective Automated Program Repair at Google                    | BRT Agent  |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.01821)                                |
-| Otter: Generating Tests from Issues to Validate SWE Patches                                  |   Otter    |       Arxiv        | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.05368)                                |
+| Otter: Generating Tests from Issues to Validate SWE Patches                                  |   Otter    |     ICML 2025      | 2025-02 | @Reproduction |                                [Paper](http://arxiv.org/abs/2502.05368)                                |
 | Issue2Test: Generating Reproducing Test Cases from Issue Reports                             | Issue2Test |       Arxiv        | 2025-03 | @Reproduction |                                [Paper](http://arxiv.org/abs/2503.16320)                                |
 
 ### Learning Strategy
@@ -162,7 +162,7 @@ For Training-Based Method, we can further classify them into 2 categories:
 
 | Literature                                                                                                   |   Name    | Journal/Conference |  Time   |                                               URL                                               |
 |--------------------------------------------------------------------------------------------------------------|:---------:|:------------------:|:-------:|:-----------------------------------------------------------------------------------------------:|
-| Training Software Engineering Agents and Verifiers with SWE-Gym                                              |  SWE-Gym  |       ARXIV        | 2024-12 |     [Paper](http://arxiv.org/abs/2412.21139)<br/>[Code](https://github.com/SWE-Gym/SWE-Gym)     |
+| Training Software Engineering Agents and Verifiers with SWE-Gym                                              |  SWE-Gym  |     ICML 2025      | 2024-12 |     [Paper](http://arxiv.org/abs/2412.21139)<br/>[Code](https://github.com/SWE-Gym/SWE-Gym)     |
 | R2E-Gym: Procedural Environments and Hybrid Verifiers for Scaling Open-Weights SWE Agents                    |  R2E-Gym  |       ARXIV        | 2024-04 |     [Paper](http://arxiv.org/abs/2504.07164)<br/>[Code](https://github.com/R2E-Gym/R2E-Gym)     |
 | SWE-Synth: Synthesizing Verifiable Bug-Fix Data to Enable Large Language Models in Resolving Real-World Bugs | SWE-Synth |       ARXIV        | 2024-04 | [Paper](http://arxiv.org/abs/2504.14757)<br/>[Code](https://github.com/FSoft-AI4Code/SWE-Synth) |
 | SWE-smith: Scaling Data for Software Engineering Agents                                                      | SWE-smith |       ARXIV        | 2024-05 |           [Paper](http://arxiv.org/abs/2504.21798)<br/>[Code](https://swesmith.com/)            |
