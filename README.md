@@ -4,8 +4,8 @@
 
 We classified this survey into three main parts: `Benchmarks`, `Technologies` and `Empirical Studies`.
 
-Up to 2025-05-27, automated GitHub issue solving `technologies` can be mainly surveyed from 2 perspectives:
-`Design Scopes` and `Learning Strategy`.
+Up to 2025-10-21, automated GitHub issue solving `technologies` can be mainly surveyed from 2 perspectives:
+`Scaffold Design` and `Learning Strategy`.
 
 ## Table of Contents
 
