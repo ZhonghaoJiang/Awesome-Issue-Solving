@@ -1,4 +1,4 @@
-# Agentic Systems for Automated GitHub Issue Solving: A Survey
+# Agentic Software Issue Resolution with Large Language Models: A Survey
 
 ## Introduction
 
