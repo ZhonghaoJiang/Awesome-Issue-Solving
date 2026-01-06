@@ -1,8 +1,11 @@
 # Agentic Software Issue Resolution with Large Language Models: A Survey
 
 ## 📰 News
-* 📅 **2026.01**: Paper update! We add 34 papers from 2025.10 to 2025.12. Now, we have included 160 papers in this survey.
-* 📅 **2025.12**: We release the first [**survey**](https://arxiv.org/abs/2512.22256) on agentic software issue resolution!
+
+* 📅 **2026.01**: Paper update! We add 34 papers from 2025.10 to 2025.12. Now, we have included 160 papers in this
+  survey.
+* 📅 **2025.12**: We release the first [**survey**](https://arxiv.org/abs/2512.22256) on agentic software issue
+  resolution!
 * 📅 **2025.10**: We summarize 126 papers about issue resolution, from 2023.10 to 2025.10!
 
 ## Introduction
@@ -91,7 +94,7 @@ For End-To-End Method, we can further classify them into 2 categories:
 | Autocoderover: Autonomous program improvement                                                                          |        AutoCodeRover         |     ISSTA 2024     | 2024-04 |  @Agent   |                                       [Paper](https://arxiv.org/abs/2404.05427)<br/>[Code](https://github.com/AutoCodeRoverSG/auto-code-rover)                                       |
 | CodeR: Issue Resolving with Multi-Agent and Task Graphs                                                                |            CodeR             |       Arxiv        | 2024-06 |  @Agent   |                                                [Paper](https://arxiv.org/abs/2406.01304)<br/>[Code](https://github.com/NL2Code/CodeR)                                                |
 | Alibaba LingmaAgent: Improving Automated Issue Resolution via Comprehensive Repository Exploration                     | LingmaAgent/RepoUnderstander | FSE Companion 2025 | 2024-06 |  @Agent   |                                      [Paper](https://arxiv.org/abs/2406.01422)<br/>[Code](https://github.com/RepoUnderstander/RepoUnderstander)                                      |
-| MAGIS: LLM-Based Multi-Agent Framework for GitHub Issue Resolution                                                     |            MAGIS             |    NeurIPS 2024    | 2024-03 |  @Agent   |                                                                       [Paper](http://arxiv.org/abs/2403.17927) <br/>[Code](https://github.com/co-evolve-lab/magis)                                                                      |
+| MAGIS: LLM-Based Multi-Agent Framework for GitHub Issue Resolution                                                     |            MAGIS             |    NeurIPS 2024    | 2024-03 |  @Agent   |                                             [Paper](http://arxiv.org/abs/2403.17927) <br/>[Code](https://github.com/co-evolve-lab/magis)                                             |
 | MASAI: Modular Architecture for Software-engineering AI Agents                                                         |            MASAI             |       Arxiv        | 2024-06 |  @Agent   |                                                                      [Paper](https://arxiv.org/abs/2406.11638)                                                                       |
 | OpenDevin: An Open Platform forAI Software Developers as Generalist Agents                                             |     OpenDevin(AllHands)      |       Arxiv        | 2024-06 |  @Agent   |                                                                  [Paper](https://frankxfz.me/od-arxiv-preview.pdf)                                                                   |
 | Agentless: Demystifying llm-based software engineering agents                                                          |          Agentless           |      FSE 2025      | 2024-07 | @Pipeline |                                           [Paper](https://arxiv.org/abs/2407.01489)<br/>[Code](https://github.com/OpenAutoCoder/Agentless)                                           |
@@ -223,6 +226,7 @@ From the perspective of `Learning Strategy`, we discuss them in 2 aspects:
 | SWE-Dev: Evaluating and Training Autonomous Feature-Driven Software Development                              |   SWE-Dev   |       ARXIV        | 2025-06 |        [Paper](http://arxiv.org/abs/2505.16975)<br/>[Code](https://github.com/DorothyDUUU/SWE-Dev)         |
 | Skywork-SWE: Unveiling Data Scaling Laws for Software Engineering in LLMs                                    | Skywork-SWE |       ARXIV        | 2025-06 |                                  [Paper](http://arxiv.org/abs/2506.19290)                                  |
 | SWE-Mirror: Scaling Issue-Resolving Datasets by Mirroring Issues Across Repositories                         | SWE-Mirror  |       ARXIV        | 2025-09 |                                  [Paper](http://arxiv.org/abs/2509.08724)                                  |
+| SWE-Lego: Pushing the Limits of Supervised Fine-tuning for Software Issue Resolving                          |  SWE-Lego   |       ARXIV        | 2026-01 |                                 [Paper](https://arxiv.org/pdf/2601.01426)                                  |
 
 #### Training
 
